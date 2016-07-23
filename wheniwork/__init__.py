@@ -22,6 +22,7 @@ class WhenIWork(object):
     __api_endpoint = "https://api.wheniwork.com/2"
     __api_headers = dict()
     __verify_ssl = False
+    __api_resp = None
 
     def __init__(self, token=None, options=dict()):
         """
@@ -101,6 +102,21 @@ class WhenIWork(object):
         """
         self.__api_headers = headers
 
+    @property
+    def resp(self):
+        """
+        Used to get the last API Response Data::
+
+            from wheniwork import WhenIWork
+
+            a = WhenIWork(token="iworksomuchitsnotfunny")
+            a.get("/locations")
+            print(a.resp)
+
+        Note: This is a read only variable.
+        """
+        return self.__api_resp
+
     def login(self, username, password, key):
         """
         Sets the user API token, and returns a dictionary of user information.
@@ -118,7 +134,8 @@ class WhenIWork(object):
         head.update(self.headers)
         resp = requests.post(url, json=params, headers=head)
         assert resp.ok
-        data = resp.json()
+        self.__api_resp = resp.json()
+        data = self.resp
         if 'login' in data and 'token' in data['login']:
             self.token = data['login']['token']
         return data
@@ -127,7 +144,7 @@ class WhenIWork(object):
         """
         Send a get request to the WhenIWork api
 
-        :param method: The API method to call, e.g. '/users/'
+        :param method: The API method to call, e.g. '/users'
         :param params: a dictionary of arguments to pass the method
         :param headers: a dictionary of custom headers to be passed.
         :return: a dictionary of the decoded json API response.
@@ -142,9 +159,51 @@ class WhenIWork(object):
                     head.update(headers)
                 resp = requests.get(url, params, headers=head)
                 assert resp.ok
-                return resp.json()
+                self.__api_resp = resp.json()
+                return self.resp
             else:
                 return {'error': 'Token is not set!!'}
         else:
             return {'error': 'Method is not str!!'}
 
+    def post(self, method, params=None, headers=None):
+        """
+        POST to the WhenIWork api
+
+        :param method: The API method to call, e.g. '/users'
+        :param params: a dictionary of arguments to pass the method
+        :param headers: a dictionary of custom headers to be passed.
+        :return: a dictionary of the decoded json API response.
+        """
+        if isinstance(method, str):
+            if self.token is not None:
+                url = self.endpoint+method
+                head = {'W-Token': self.token}
+                head.update(self.headers)
+                if headers:
+                    head.update(headers)
+                resp = requests.post(url, json=params, headers=head)
+                assert resp.ok
+                self.__api_resp = resp.json()
+                return self.resp
+            else:
+                return {'error': 'Token is not set!!'}
+        else:
+            return {'error': 'Method is not str!!'}
+
+    def create(self, method, params=None, headers=None):
+        """
+        Synonym of post
+
+        :param method:
+        :param params:
+        :param headers:
+        :return:
+        """
+        return self.post(method, params=params, headers=headers)
+
+    def update(self, method, params=None, headers=None):
+        pass
+
+    def delete(self, method, params=None, headers=None):
+        pass
