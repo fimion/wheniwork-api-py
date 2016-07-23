@@ -1,28 +1,31 @@
 """
-.. module:: WhenIWork
-    :synopsis: A Python Wrapper for WhenIWork.com
-
-.. moduleauthor:: Alex Riviere <fimion@gmail.com>
+A Python Wrapper for WhenIWork.com
+    .. moduleauthor:: Alex Riviere <fimion@gmail.com>
 """
 
 import requests
 
 
 class WhenIWork(object):
-    """
-    .. class:: WhenIWork
+    """.. py:class: WhenIWork([:param token:=None, :param options:=dict()])
+    :param token: The user WhenIWork API token
+    :param options: Allows you to set the `headers` and the `endpoint` from a dict.
+
+    Methods:
+
     """
     # Library Version
     version = 0.1
 
     # Private Variables
     __api_token = None
-    __api_endpoint = "https://wheniwork.com/2"
-    __api_headers = None
+    __api_endpoint = "https://api.wheniwork.com/2"
+    __api_headers = dict()
     __verify_ssl = False
 
     def __init__(self, token=None, options=dict()):
         """
+        .. py:method:: init
         Create a new instance.
         :param token: The user WhenIWork API token
         :param options: Allows you to set the `headers` and the `endpoint` from a dict.
@@ -38,17 +41,110 @@ class WhenIWork(object):
     @property
     def token(self):
         """
-        Gets the current token
-        :return str: the user WhenIWork api token
+        Used to set or retrieve the user's api token::
+
+            from wheniwork import WhenIWork
+
+            a = WhenIWork()
+            a.token = "ilovemyboss"
+            print(a.token)
         """
         return self.__api_token
 
     @token.setter
     def token(self, token):
         """
-        Sets the token.
-        :param token:
-        :return WhenIWork:
         """
         self.__api_token = token
-        return self
+
+    @property
+    def endpoint(self):
+        """
+        Used to set or retrieve the api endpoint::
+
+            from wheniwork import WhenIWork
+
+            a = WhenIWork()
+            a.endpoint = "https://api.wheniwork.com/2"
+            print(a.endpoint)
+        """
+        return self.__api_endpoint
+
+    @endpoint.setter
+    def endpoint(self, endpoint):
+        """
+
+        :param endpoint:
+        :return:
+        """
+        self.__api_endpoint = endpoint
+
+    @property
+    def headers(self):
+        """
+        Used to set or retrieve the api endpoint::
+
+            from wheniwork import WhenIWork
+
+            a = WhenIWork()
+            a.headers = {W-Key:"iworksoharditsnotfunny"}
+            print(a.headers['W-Key'])
+        """
+        return self.__api_headers
+
+    @headers.setter
+    def headers(self, headers):
+        """
+
+        :param headers:
+        :return:
+        """
+        self.__api_headers = headers
+
+    def login(self, username, password, key):
+        """
+        Sets the user API token, and returns a dictionary of user information.
+
+        :param username: The email for the user account.
+        :param password: The password for the user account.
+        :param key: the developer key given to you by WhenIWork.com
+        :return dict:
+
+        """
+
+        url = self.endpoint+"/login"
+        params = {'username': username, 'password': password}
+        head = {'W-Key': key}
+        head.update(self.headers)
+        resp = requests.post(url, json=params, headers=head)
+        assert resp.ok
+        data = resp.json()
+        if 'login' in data and 'token' in data['login']:
+            self.token = data['login']['token']
+        return data
+
+    def get(self, method, params=None, headers=None):
+        """
+        Send a get request to the WhenIWork api
+
+        :param method: The API method to call, e.g. '/users/'
+        :param params: a dictionary of arguments to pass the method
+        :param headers: a dictionary of custom headers to be passed.
+        :return: a dictionary of the decoded json API response.
+
+        """
+        if isinstance(method, str):
+            if self.token is not None:
+                url = self.endpoint+method
+                head = {'W-Token': self.token}
+                head.update(self.headers)
+                if headers:
+                    head.update(headers)
+                resp = requests.get(url, params, headers=head)
+                assert resp.ok
+                return resp.json()
+            else:
+                return {'error': 'Token is not set!!'}
+        else:
+            return {'error': 'Method is not str!!'}
+
