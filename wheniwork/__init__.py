@@ -15,16 +15,16 @@ class WhenIWork(object):
 
     """
     # Library Version
-    version = 0.1
+    __version = 0.1
 
     # Private Variables
     __api_token = None
     __api_endpoint = "https://api.wheniwork.com/2"
-    __api_headers = dict()
+    __api_headers = {'user-agent': 'wheniwork-api-py/'+str(__version)}
     __verify_ssl = False
     __api_resp = None
 
-    def __init__(self, token=None, options=dict()):
+    def __init__(self, token=None, options=None):
         """
         .. py:method:: init
         Create a new instance.
@@ -33,11 +33,12 @@ class WhenIWork(object):
         """
         self.__api_token = token
 
-        if 'headers' in options:
-            self.__api_headers = options['headers']
+        if isinstance(options, dict):
+            if 'headers' in options:
+                self.__api_headers = options['headers']
 
-        if 'endpoint' in options:
-            self.__api_endpoint = options['endpoint']
+            if 'endpoint' in options:
+                self.__api_endpoint = options['endpoint']
 
     @property
     def token(self):
@@ -203,7 +204,50 @@ class WhenIWork(object):
         return self.post(method, params=params, headers=headers)
 
     def update(self, method, params=None, headers=None):
-        pass
+        """
+        Update an object on WhenIWork
 
-    def delete(self, method, params=None, headers=None):
-        pass
+        :param method: The API method to call, e.g. '/users/1' MUST INCLUDE ID OF OBJECT.
+        :param params: a dictionary of arguments to pass the method
+        :param headers: a dictionary of custom headers to be passed.
+        :return: a dictionary of the decoded json API response.
+        """
+        if isinstance(method, str):
+            if self.token is not None:
+                url = self.endpoint+method
+                head = {'W-Token': self.token}
+                head.update(self.headers)
+                if headers:
+                    head.update(headers)
+                resp = requests.put(url, json=params, headers=head)
+                assert resp.ok
+                self.__api_resp = resp.json()
+                return self.resp
+            else:
+                return {'error': 'Token is not set!!'}
+        else:
+            return {'error': 'Method is not str!!'}
+
+    def delete(self, method, headers=None):
+        """
+                Delete an object on WhenIWork
+
+                :param method: The API method to call, e.g. '/users/1' MUST INCLUDE ID OF OBJECT.
+                :param headers: a dictionary of custom headers to be passed.
+                :return: a dictionary of the decoded json API response.
+                """
+        if isinstance(method, str):
+            if self.token is not None:
+                url = self.endpoint + method
+                head = {'W-Token': self.token}
+                head.update(self.headers)
+                if headers:
+                    head.update(headers)
+                resp = requests.delete(url, headers=head)
+                assert resp.ok
+                self.__api_resp = resp.json()
+                return self.resp
+            else:
+                return {'error': 'Token is not set!!'}
+        else:
+            return {'error': 'Method is not str!!'}
