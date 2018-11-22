@@ -6,6 +6,16 @@ A Python Wrapper for WhenIWork.com
 import requests
 
 
+def raise_for_status_with_message(resp):
+    try:
+        resp.raise_for_status()
+    except requests.exceptions.HTTPError as error:
+        if resp.text:
+            raise requests.exceptions.HTTPError('{} \nError message: {}'.format(str(error), resp.text))
+        else:
+            raise error
+
+
 class WhenIWork(object):
     """.. py:class: WhenIWork([:param token:=None, :param options:=dict()])
     :param token: The user WhenIWork API token
@@ -134,7 +144,7 @@ class WhenIWork(object):
         head = {'W-Key': key}
         head.update(self.headers)
         resp = requests.post(url, json=params, headers=head)
-        assert resp.ok
+        raise_for_status_with_message(resp)
         self.__api_resp = resp.json()
         data = self.resp
         if 'login' in data and 'token' in data['login']:
@@ -159,7 +169,7 @@ class WhenIWork(object):
                 if headers:
                     head.update(headers)
                 resp = requests.get(url, params, headers=head)
-                assert resp.ok
+                raise_for_status_with_message(resp)
                 self.__api_resp = resp.json()
                 return self.resp
             else:
@@ -184,7 +194,7 @@ class WhenIWork(object):
                 if headers:
                     head.update(headers)
                 resp = requests.post(url, json=params, headers=head)
-                assert resp.ok
+                raise_for_status_with_message(resp)
                 self.__api_resp = resp.json()
                 return self.resp
             else:
@@ -220,7 +230,7 @@ class WhenIWork(object):
                 if headers:
                     head.update(headers)
                 resp = requests.put(url, json=params, headers=head)
-                assert resp.ok
+                raise_for_status_with_message(resp)
                 self.__api_resp = resp.json()
                 return self.resp
             else:
@@ -244,7 +254,7 @@ class WhenIWork(object):
                 if headers:
                     head.update(headers)
                 resp = requests.delete(url, headers=head)
-                assert resp.ok
+                raise_for_status_with_message(resp)
                 self.__api_resp = resp.json()
                 return self.resp
             else:
