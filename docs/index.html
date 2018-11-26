@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to wheniwork’s documentation! &mdash; wheniwork 0.2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> wheniwork
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to wheniwork’s documentation!</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">wheniwork</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to wheniwork’s documentation!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-wheniwork-s-documentation">
+<h1>Welcome to wheniwork’s documentation!<a class="headerlink" href="#welcome-to-wheniwork-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-wheniwork"></span><dl class="docutils">
+<dt>A Python Wrapper for WhenIWork.com</dt>
+<dd></dd>
+</dl>
+<dl class="class">
+<dt id="wheniwork.WhenIWork">
+<em class="property">class </em><code class="descclassname">wheniwork.</code><code class="descname">WhenIWork</code><span class="sig-paren">(</span><em>token=None</em>, <em>options=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wheniwork.WhenIWork" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>token</strong> – The user WhenIWork API token</li>
+<li><strong>options</strong> – Allows you to set the <cite>headers</cite> and the <cite>endpoint</cite> from a dict.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Methods:</p>
+<dl class="method">
+<dt id="wheniwork.WhenIWork.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>method</em>, <em>params=None</em>, <em>headers=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wheniwork.WhenIWork.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synonym of post</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>method</strong> – </li>
+<li><strong>params</strong> – </li>
+<li><strong>headers</strong> – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="wheniwork.WhenIWork.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>method</em>, <em>headers=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wheniwork.WhenIWork.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete an object on WhenIWork</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>method</strong> – The API method to call, e.g. ‘/users/1’ MUST INCLUDE ID OF OBJECT.</li>
+<li><strong>headers</strong> – a dictionary of custom headers to be passed.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a dictionary of the decoded json API response.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wheniwork.WhenIWork.endpoint">
+<code class="descname">endpoint</code><a class="headerlink" href="#wheniwork.WhenIWork.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to set or retrieve the api endpoint:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wheniwork</span> <span class="k">import</span> <span class="n">WhenIWork</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">WhenIWork</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;https://api.wheniwork.com/2&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">endpoint</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="wheniwork.WhenIWork.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>method</em>, <em>params=None</em>, <em>headers=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wheniwork.WhenIWork.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a get request to the WhenIWork api</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>method</strong> – The API method to call, e.g. ‘/users’</li>
+<li><strong>params</strong> – a dictionary of arguments to pass the method</li>
+<li><strong>headers</strong> – a dictionary of custom headers to be passed.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a dictionary of the decoded json API response.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wheniwork.WhenIWork.headers">
+<code class="descname">headers</code><a class="headerlink" href="#wheniwork.WhenIWork.headers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to set or retrieve the api endpoint:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wheniwork</span> <span class="k">import</span> <span class="n">WhenIWork</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">WhenIWork</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="n">W</span><span class="o">-</span><span class="n">Key</span><span class="p">:</span><span class="s2">&quot;iworksoharditsnotfunny&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;W-Key&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="wheniwork.WhenIWork.login">
+<code class="descname">login</code><span class="sig-paren">(</span><em>username</em>, <em>password</em>, <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#wheniwork.WhenIWork.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the user API token, and returns a dictionary of user information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>username</strong> – The email for the user account.</li>
+<li><strong>password</strong> – The password for the user account.</li>
+<li><strong>key</strong> – the developer key given to you by WhenIWork.com</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return dict:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="wheniwork.WhenIWork.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>method</em>, <em>params=None</em>, <em>headers=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wheniwork.WhenIWork.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>POST to the WhenIWork api</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>method</strong> – The API method to call, e.g. ‘/users’</li>
+<li><strong>params</strong> – a dictionary of arguments to pass the method</li>
+<li><strong>headers</strong> – a dictionary of custom headers to be passed.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a dictionary of the decoded json API response.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wheniwork.WhenIWork.resp">
+<code class="descname">resp</code><a class="headerlink" href="#wheniwork.WhenIWork.resp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to get the last API Response Data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wheniwork</span> <span class="k">import</span> <span class="n">WhenIWork</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">WhenIWork</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s2">&quot;iworksomuchitsnotfunny&quot;</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/locations&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">resp</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note: This is a read only variable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="wheniwork.WhenIWork.token">
+<code class="descname">token</code><a class="headerlink" href="#wheniwork.WhenIWork.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to set or retrieve the user’s api token:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wheniwork</span> <span class="k">import</span> <span class="n">WhenIWork</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">WhenIWork</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="s2">&quot;ilovemyboss&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">token</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="wheniwork.WhenIWork.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>method</em>, <em>params=None</em>, <em>headers=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wheniwork.WhenIWork.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update an object on WhenIWork</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>method</strong> – The API method to call, e.g. ‘/users/1’ MUST INCLUDE ID OF OBJECT.</li>
+<li><strong>params</strong> – a dictionary of arguments to pass the method</li>
+<li><strong>headers</strong> – a dictionary of custom headers to be passed.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a dictionary of the decoded json API response.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Alex Riviere
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
