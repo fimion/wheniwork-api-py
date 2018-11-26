@@ -4,6 +4,7 @@ A Python Wrapper for WhenIWork.com
 """
 
 import requests
+from wheniwork.version import VERSION_NUMBER
 
 
 def raise_for_status_with_message(resp):
@@ -24,13 +25,13 @@ class WhenIWork(object):
     Methods:
 
     """
-    # Library Version
-    __version = 0.1
-
     # Private Variables
     __api_token = None
     __api_endpoint = "https://api.wheniwork.com/2"
-    __api_headers = {'user-agent': 'wheniwork-api-py/'+str(__version)}
+    __api_headers = {
+        'user-agent': 'wheniwork-api-py/{version}'
+        .format(version=VERSION_NUMBER)
+    }
     __verify_ssl = False
     __api_resp = None
 
