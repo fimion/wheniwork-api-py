@@ -2,6 +2,6 @@
 pytest==3.6.1
 Sphinx==1.8.2
 sphinx-rtd-theme-0.4.2
-wheel==0.32.3
+wheel==0.38.1
 twine>=1.12.1
 cmarkgfm>=0.4.2
